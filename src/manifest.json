@@ -1,0 +1,24 @@
+{
+  "name": "Sunny Side",
+  "version": "0.0.1",
+  "description": "It's never too early to get crackin' on your tasks of the day!",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "icon-34.png",
+    "default_title": "sunny side"
+  },
+  
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
