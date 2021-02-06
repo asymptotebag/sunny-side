@@ -131,6 +131,11 @@ form {
   font-size: 16px;
 }
 
+.u-textSmall
+{
+  font-size: 10px;
+}
+
 .u-relative {
   position: relative;
 }

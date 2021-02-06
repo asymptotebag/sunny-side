@@ -23,7 +23,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    const greetingMsgs = ["Good Morning", "Hello", "Howdy", "What's cracking"];
+    const greetingMsgs = ["Good Morning", "Hello", "Howdy", "Let's get crackin\'"];
     const greeting = greetingMsgs[Math.floor(Math.random() * greetingMsgs.length)];
     // let name = this.getName();
     this.getStoredName();
