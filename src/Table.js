@@ -15,12 +15,16 @@ class Table extends React.Component {
   render() {
     let row_state = this.state.selected ? "selectedRow" : "nonSelectedRow";
     const items = this.props.items;
+    if (items.length === 0) {
+      return (<div></div>);
+    };
     return (
       <div 
         id="Table" 
         className="u-textMedium" 
         // style={{width: "90%", margin: "auto",}}
       >
+        <br/>
         <table style={{width: "90%"}}>
           <tbody>
             <tr>

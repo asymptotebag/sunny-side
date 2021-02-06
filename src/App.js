@@ -13,7 +13,7 @@ class App extends React.Component {
 
     this.state = {
       greeting: "",
-      name: "friend",
+      mantra: "",
       nameBox: "",
       eventName: '',
       time: '',
@@ -40,15 +40,19 @@ class App extends React.Component {
   }
 
   handleChangeName = () => {
-    console.log("About to change name to " + this.state.nameBox);
-    chrome.storage.sync.set({name: this.state.nameBox}, function() {
-      console.log('Name was set to ' + this.state.nameBox);
-      this.setState({
-        name: this.state.nameBox,
-        nameBox: "",
-      });
+    // console.log("About to change name to " + this.state.nameBox);
+    // chrome.storage.sync.set({name: this.state.nameBox}, function() {
+    //   console.log('Name was set to ' + this.state.nameBox);
+    //   this.setState({
+    //     name: this.state.nameBox,
+    //     nameBox: "",
+    //   });
+    // });
+    // this.getStoredName();
+    this.setState({
+      mantra: this.state.nameBox,
+      nameBox: "",
     });
-    this.getStoredName();
     
   }
 
@@ -91,15 +95,20 @@ class App extends React.Component {
   }
 
   render() {
-    let name = this.state.name;
+    let name = "friend";
     // console.log("this.state.name = " + name);
     chrome.storage.sync.get(null, function (data) { console.info(data) });
+    let mantra = this.state.mantra;
+    if (mantra !== "") {
+      mantra = "\"" + this.state.mantra + "\"";
+    };
     return (
       <>
       <div className="App-container u-textCenter">
         <h1>{this.state.greeting}, {name}!</h1>
-
+        <p className="u-italics u-textMedium" style={{color: "var(--copper)"}}>today's mantra:&nbsp; {mantra}</p>
         <Table items={ this.state.items }/>
+        
         <Form handleFormSubmit={ this.handleFormSubmit } 
           handleInputChange={ this.handleInputChange }
           newEvent={ this.state.eventName }
@@ -107,11 +116,11 @@ class App extends React.Component {
           newDate={ this.state.date } />
 
       </div>
-
+      <br/>
       <div className="u-flex" style={{justifyContent: "center"}}>
             <input
                 type="text"
-                placeholder="change name"
+                placeholder="set today's mantra..."
                 value={this.state.nameBox}
                 onChange={this.handleTypeName}
                 className="u-input"

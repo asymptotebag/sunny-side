@@ -104,6 +104,10 @@ form {
   font-weight: 600;
 }
 
+.u-italics {
+  font-style: italic;
+}
+
 .u-textCenter {
   text-align: center;
 }
@@ -120,6 +124,11 @@ form {
 .u-textMedium
 {
   font-size: 20px;
+}
+
+.u-textMediumSmall
+{
+  font-size: 16px;
 }
 
 .u-relative {
