@@ -54,11 +54,7 @@ class App extends React.Component {
           newTime={ this.state.time }
           newDate={ this.state.date } />
 
-        <form>
-          <label for="fname"> Name:</label><br>
-          <input type="text" id="fname" name="fname"><br>
-          <input type="submit" value="Submit"></input>
-        </form>
+          
 
       </div>
       {/* <Router>
