@@ -4,8 +4,12 @@ class Table extends React.Component {
   render() {
     const items = this.props.items;
     return (
-      <div id="Table" style={{margin: "auto"}}>
-        <table>
+      <div 
+        id="Table" 
+        className="u-textMedium" 
+        // style={{width: "90%", margin: "auto",}}
+      >
+        <table style={{width: "90%"}}>
           <tbody>
             <tr>
               <th>Event</th>
