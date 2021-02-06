@@ -15,7 +15,7 @@
 */
 
 /* TODO: REPLACE WITH YOUR OWN FONT! */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
 
 :root {
   --primary: #396dff;
@@ -29,6 +29,14 @@
   --medgrey: #e0e0e0;
   --grey: #f7f7f7;
   --white: #fff;
+
+  /* THEME COLORS */
+  --copper: #BD6E5E;
+  --melon: #FABFB3;
+  --isabelline: #F8EDEB;
+  --yellow: #FFED94;
+  --champagne: #FFD285;
+  --apricot: #FFB473;
 
   --red: #d64545;
   
@@ -55,7 +63,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Nunito', cursive;
   font-weight: 300;
 }
 
@@ -136,4 +144,56 @@ form {
 
 .u-link:hover {
   color: var(--primary--dim);
+}
+
+.u-input,
+.u-submit,
+.u-close
+{
+  font-size: 14px;
+  margin: var(--s);
+  padding: var(--s) var(--m);
+}
+
+.u-input {
+  color: var(--copper);
+  border: var(--copper) 2px solid;
+  border-radius: var(--xs) 0 0 var(--xs);
+  transition: box-shadow 0.1s;
+}
+
+.u-input:focus-within 
+{
+  border-color: var(--melon);
+  outline: none;
+  /* box-shadow: 0 0 0 var(--xs) var(--green--dim); */
+}
+
+.u-submit {
+  color: var(--copper);
+  border: var(--melon) 2px solid;
+  border-radius: 0 var(--xs) var(--xs) 0;
+  background: none;
+  transition: color 0.1s, background 0.1s;
+  outline:none;
+}
+
+.u-submit:hover {
+  color: var(--white);
+  background-color: var(--melon);
+}
+
+
+.u-close {
+  color: var(--tag-red);
+  border: var(--tag-red) 2px solid;
+  border-radius: 5px;
+  background: none;
+  transition: color 0.1s, background 0.1s;
+  outline:none;
+}
+
+.u-close:hover {
+  color: var(--white);
+  background-color: var(--tag-red);
 }
