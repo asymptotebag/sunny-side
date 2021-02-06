@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Router, Link } from "@reach/router";
-import "./App.css";
 import Table from './Table';
 import Form from './Form';
 
+import "./utilities.css";
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
