@@ -3,12 +3,16 @@ import React, { Component } from 'react';
 class Table extends React.Component {
   render() {
     const items = this.props.items;
+    if (items.length === 0) {
+      return (<div></div>);
+    };
     return (
       <div 
         id="Table" 
         className="u-textMedium" 
         // style={{width: "90%", margin: "auto",}}
       >
+        <br/>
         <table style={{width: "90%"}}>
           <tbody>
             <tr>
@@ -18,7 +22,7 @@ class Table extends React.Component {
             </tr>
             {items.map(item => {
               return (
-                <tr class="row-item">
+                <tr className="row-item">
                   <td>{item.eventName}</td>
                   <td>{item.date}</td>
                   <td>{item.time}</td>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Form extends React.Component {
   render() {
     return (
-      <div id="Form">
+      <div id="Form" className="u-textMediumSmall">
         <h3 className="u-textCenter">Add a new schedule item or task:</h3>  
         <form onSubmit={this.props.handleFormSubmit}>
           <label htmlFor="eventName">
@@ -19,6 +19,7 @@ class Form extends React.Component {
           <input id="time" value={this.props.newTime} 
             type="time" name="time"
             onChange={this.props.handleInputChange}
+            style={{borderRadius: "0px"}}
             className="u-input" />
           </label>
 
@@ -27,9 +28,11 @@ class Form extends React.Component {
           <input id="date" value={this.props.newDate} 
             type="date" name="date"
             onChange={this.props.handleInputChange}
+            style={{borderRadius: "0 var(--xs) var(--xs) 0"}}
             className="u-input" />
           </label>
-          <button type="submit" value="Submit" className="u-submit u-pointer">Add Event</button>
+          <button type="submit" value="Submit" style={{borderRadius: "var(--xs)"}} className="u-submit u-pointer">
+            Add Event</button>
         </form>
       </div>
     );

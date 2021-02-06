@@ -126,6 +126,11 @@ form {
   font-size: 20px;
 }
 
+.u-textMediumSmall
+{
+  font-size: 16px;
+}
+
 .u-relative {
   position: relative;
 }

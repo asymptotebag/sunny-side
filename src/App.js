@@ -107,10 +107,8 @@ class App extends React.Component {
       <div className="App-container u-textCenter">
         <h1>{this.state.greeting}, {name}!</h1>
         <p className="u-italics u-textMedium" style={{color: "var(--copper)"}}>today's mantra:&nbsp; {mantra}</p>
-        <br/>
         <Table items={ this.state.items }/>
-        <br/>
-        <br/>
+        
         <Form handleFormSubmit={ this.handleFormSubmit } 
           handleInputChange={ this.handleInputChange }
           newEvent={ this.state.eventName }
