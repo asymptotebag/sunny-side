@@ -5,4 +5,26 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', cursive;
+  font-weight: 300;
+  background-color: var(--isabelline);
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: var(--apricot);
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
 }
