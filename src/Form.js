@@ -5,7 +5,7 @@ class Form extends React.Component {
     return (
       <div id="Form">
         <h3 className="u-textCenter">Add a new schedule item or task:</h3>  
-        <form className="u-flex" onSubmit={this.props.handleFormSubmit}>
+        <form onSubmit={this.props.handleFormSubmit}>
           <label htmlFor="eventName">
           Event:&nbsp;
           <input id="eventName" value={this.props.newEvent} 

@@ -191,3 +191,12 @@ form {
   color: var(--white);
   background-color: var(--tag-red);
 }
+
+.row-item {
+  color: var(--copper);
+}
+
+.row-item:hover {
+  color: var(--melon);
+  text-decoration: line-through;
+}

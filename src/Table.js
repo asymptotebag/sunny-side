@@ -18,7 +18,7 @@ class Table extends React.Component {
             </tr>
             {items.map(item => {
               return (
-                <tr>
+                <tr class="row-item">
                   <td>{item.eventName}</td>
                   <td>{item.date}</td>
                   <td>{item.time}</td>
