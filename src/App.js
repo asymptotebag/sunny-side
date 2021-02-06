@@ -7,16 +7,29 @@ import "./utilities.css";
 import "./App.css";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
+      nameBox: "",
       eventName: '',
       time: '',
       date: '',
       items: []
     }
   };
+
+  handleTypeName = (e) => {
+    this.setState({
+      nameBox: e.target.value,
+    });
+  }
+
+  handleChangeName = () => {
+    chrome.storage.sync.set({name: this.state.nameBox}, function() {
+      console.log('Name was set to ' + this.state.nameBox);
+    });
+  }
 
   handleFormSubmit = (e) => {
     e.preventDefault();
@@ -48,12 +61,17 @@ class App extends React.Component {
   };
 
   render() {
-    const greetingMsgs = ["Good Morning", "Hello", "Howdy", "What's cracking,"];
+    const greetingMsgs = ["Good Morning", "Hello", "Howdy", "What's cracking"];
     const greeting = greetingMsgs[Math.floor(Math.random() * greetingMsgs.length)];
+    let name = "Friend";
+    chrome.storage.sync.get(['name'], function(result) {
+      console.log('retrieved name');
+      name = result.name;
+    });
     return (
       <>
       <div className="App-container">
-        <h1>{greeting}, Kelly</h1>
+        <h1>{greeting}, {name}</h1>
 
         <Table items={ this.state.items }/>
         <Form handleFormSubmit={ this.handleFormSubmit } 
@@ -66,10 +84,29 @@ class App extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" value={this.state.nameBox} onChange={this.handleTypeName} />
         </label>
         <input type="submit" value="Submit" />
       </form>
+
+      <div className="u-flex" style={{justifyContent: "center"}}>
+            <input
+                type="text"
+                placeholder="change name"
+                value={this.state.nameBox}
+                onChange={this.handleTypeName}
+                className="u-input"
+                style={{marginRight: "1px"}}
+            />
+          <button
+              type="submit"
+              value={this.state.nameBox}
+              onClick={this.handleChangeName}
+              className="u-submit u-pointer"
+              style={{marginLeft: "1px"}}
+          > change </button>
+          {/* <button className="Modal-close" style={{marginLeft: "var(--xs)"}} onClick={() => {window.location.href = "/profile"}}>back to profile</button> */}
+        </div>
       {/* <Router>
 
       </Router> */}
