@@ -104,6 +104,10 @@ form {
   font-weight: 600;
 }
 
+.u-italics {
+  font-style: italic;
+}
+
 .u-textCenter {
   text-align: center;
 }
