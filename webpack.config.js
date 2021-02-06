@@ -22,6 +22,7 @@ var options = {
   mode: process.env.NODE_ENV || "development",
   entry: {
     // popup: path.join(__dirname, "src", "popup.js"),
+    App: path.join(__dirname, "src", "App.js"),
     options: path.join(__dirname, "src", "options.js"),
     background: path.join(__dirname, "src", "background.js"),
     index: path.join(__dirname, "src", "index.js")
@@ -75,6 +76,7 @@ var options = {
     }]),
     new HtmlWebpackPlugin({
       title: "Sunny Side", // change this to your app title
+      favicon: "./src/img/favicon.ico",
       meta: {
         charset: "utf-8",
         viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
@@ -91,18 +93,15 @@ var options = {
     //   filename: "popup.html",
     //   chunks: ["popup"]
     // }),
-    // new HtmlWebpackPlugin({
-    //   template: path.join(__dirname, "src", "options.html"),
-    //   filename: "options.html",
-    //   chunks: ["options"]
-    // }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "src", "options.html"),
+      filename: "options.html",
+      chunks: ["options"]
+    }),
     // new HtmlWebpackPlugin({
     //   template: path.join(__dirname, "src", "background.html"),
     //   filename: "background.html",
     //   chunks: ["background"]
-    // }),
-    // new HtmlWebpackPlugin({
-    //   favicon: "./src/img/favicon.ico"
     // }),
     new WriteFilePlugin()
   ]

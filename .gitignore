@@ -5,3 +5,4 @@ secrets.*.js
 .env
 yarn.lock
 LICENSE.md
+src/App.js
