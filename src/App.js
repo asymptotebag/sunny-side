@@ -27,6 +27,7 @@ class App extends React.Component {
       time: this.state.time,
       date: this.state.date
     });
+  }
 
   handleInputChange = (e) => {
     let input = e.target;
