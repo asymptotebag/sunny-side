@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 
 class Table extends React.Component {
+  constructor(){
+    super();
+
+    this.state = {
+       selected: false
+    }
+  }
+  toggleSelection = () => {
+    this.setState({selected: !this.state.selected})
+  }
+
   render() {
+    let row_state = this.state.selected ? "selectedRow" : "nonSelectedRow";
     const items = this.props.items;
     return (
       <div 
@@ -18,7 +30,9 @@ class Table extends React.Component {
             </tr>
             {items.map(item => {
               return (
-                <tr class="row-item">
+                <tr class={row_state} onClick={
+                  this.toggleSelection.bind(this)
+                }>
                   <td>{item.eventName}</td>
                   <td>{item.date}</td>
                   <td>{item.time}</td>

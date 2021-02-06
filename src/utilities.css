@@ -192,11 +192,11 @@ form {
   background-color: var(--tag-red);
 }
 
-.row-item {
-  color: var(--copper);
+.selectedRow {
+  color: var(--melon);
+  text-decoration: line-through
 }
 
-.row-item:hover {
-  color: var(--melon);
-  text-decoration: line-through;
+.nonSelectedRow {
+  color: var(--copper);
 }
