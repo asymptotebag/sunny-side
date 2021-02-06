@@ -13,14 +13,14 @@ class Form extends React.Component {
             onChange={this.props.handleInputChange} />
           </label>
 
-          <label for="time">
+          <label htmlFor="time">
           Time:
           <input id="time" value={this.props.newTime} 
             type="time" name="time"
             onChange={this.props.handleInputChange} />
           </label>
 
-          <label for="date">
+          <label htlmFor="date">
           Date:
           <input id="date" value={this.props.newDate} 
             type="date" name="date"

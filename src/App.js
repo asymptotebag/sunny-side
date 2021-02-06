@@ -7,8 +7,8 @@ import "./utilities.css";
 import "./App.css";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       eventName: '',
@@ -16,19 +16,26 @@ class App extends React.Component {
       date: '',
       items: []
     }
-  }
+  };
 
   handleFormSubmit = (e) => {
     e.preventDefault();
 
-    let items = [this.state.items];
+    let items = [...this.state.items];
 
     items.push({
       eventName: this.state.eventName,
       time: this.state.time,
       date: this.state.date
     });
-  }
+
+    this.setState({
+      items,
+      eventName: '',
+      time: '',
+      date: ''
+    });
+  };
 
   handleInputChange = (e) => {
     let input = e.target;
@@ -55,6 +62,7 @@ class App extends React.Component {
           newTime={ this.state.time }
           newDate={ this.state.date } />
 
+      </div>
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
@@ -62,8 +70,6 @@ class App extends React.Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
-
-      </div>
       {/* <Router>
 
       </Router> */}
