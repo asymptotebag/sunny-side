@@ -41,10 +41,11 @@ class App extends React.Component {
   render() {
     const greetingMsgs = ["Good Morning", "Hello", "Howdy", "What's cracking"];
     const greeting = greetingMsgs[Math.floor(Math.random() * greetingMsgs.length)];
+    const name = "Kelly";
     return (
       <>
       <div className="App-container">
-        <h1>{greeting}, Kelly</h1>
+        <h1>{greeting}, {name}</h1>
 
         {/* <Table items={ this.state.items }/>
         <Form handleFormSubmit={ this.handleFormSubmit } 

@@ -76,6 +76,7 @@ var options = {
     }]),
     new HtmlWebpackPlugin({
       title: "Sunny Side", // change this to your app title
+      favicon: "./src/img/favicon.ico",
       meta: {
         charset: "utf-8",
         viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
@@ -101,9 +102,6 @@ var options = {
     //   template: path.join(__dirname, "src", "background.html"),
     //   filename: "background.html",
     //   chunks: ["background"]
-    // }),
-    // new HtmlWebpackPlugin({
-    //   favicon: "./src/img/favicon.ico"
     // }),
     new WriteFilePlugin()
   ]
