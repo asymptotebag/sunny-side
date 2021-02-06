@@ -5,6 +5,7 @@ import Form from './Form';
 
 import "./utilities.css";
 import "./App.css";
+// import { read } from 'fs-extra';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class App extends React.Component {
 
     this.state = {
       greeting: "",
+      name: "friend",
       nameBox: "",
       eventName: '',
       time: '',
@@ -23,8 +25,11 @@ class App extends React.Component {
   componentDidMount() {
     const greetingMsgs = ["Good Morning", "Hello", "Howdy", "What's cracking"];
     const greeting = greetingMsgs[Math.floor(Math.random() * greetingMsgs.length)];
+    // let name = this.getName();
+    this.getStoredName();
     this.setState({
       greeting: greeting,
+      // name: name,
     });
   }
 
@@ -38,7 +43,13 @@ class App extends React.Component {
     console.log("About to change name to " + this.state.nameBox);
     chrome.storage.sync.set({name: this.state.nameBox}, function() {
       console.log('Name was set to ' + this.state.nameBox);
+      this.setState({
+        name: this.state.nameBox,
+        nameBox: "",
+      });
     });
+    this.getStoredName();
+    
   }
 
   handleFormSubmit = (e) => {
@@ -66,20 +77,27 @@ class App extends React.Component {
     let value = input.value;
 
     this.setState({
-      [name]: value
+      [name]: value,
     })
   };
 
-  render() {
-    let name = "Friend";
+  getStoredName = () => {
     chrome.storage.sync.get(['name'], function(result) {
-      console.log('retrieved name');
-      name = result.name;
+       console.log('retrieved name: ' + result.name);
+       this.setState({
+         name: result.name,
+       });
     });
+  }
+
+  render() {
+    let name = this.state.name;
+    // console.log("this.state.name = " + name);
+    chrome.storage.sync.get(null, function (data) { console.info(data) });
     return (
       <>
       <div className="App-container u-textCenter">
-        <h1>{this.state.greeting}, {name}</h1>
+        <h1>{this.state.greeting}, {name}!</h1>
 
         <Table items={ this.state.items }/>
         <Form handleFormSubmit={ this.handleFormSubmit } 
@@ -89,14 +107,6 @@ class App extends React.Component {
           newDate={ this.state.date } />
 
       </div>
-
-      {/* <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.nameBox} onChange={this.handleTypeName} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form> */}
 
       <div className="u-flex" style={{justifyContent: "center"}}>
             <input
