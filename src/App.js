@@ -41,7 +41,7 @@ class App extends React.Component {
 
   render() {
     const greetingMsgs = ["Good Morning", "Hello", "Howdy", "What's cracking,"];
-    const greeting = greetingMsgs[Math.floor(Math.random() * greetingsMsgs.length)];
+    const greeting = greetingMsgs[Math.floor(Math.random() * greetingMsgs.length)];
     return (
       <>
       <div className="App-container">
