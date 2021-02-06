@@ -11,6 +11,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      greeting: "",
       nameBox: "",
       eventName: '',
       time: '',
@@ -19,6 +20,14 @@ class App extends React.Component {
     }
   };
 
+  componentDidMount() {
+    const greetingMsgs = ["Good Morning", "Hello", "Howdy", "What's cracking"];
+    const greeting = greetingMsgs[Math.floor(Math.random() * greetingMsgs.length)];
+    this.setState({
+      greeting: greeting,
+    });
+  }
+
   handleTypeName = (e) => {
     this.setState({
       nameBox: e.target.value,
@@ -26,6 +35,7 @@ class App extends React.Component {
   }
 
   handleChangeName = () => {
+    console.log("About to change name to " + this.state.nameBox);
     chrome.storage.sync.set({name: this.state.nameBox}, function() {
       console.log('Name was set to ' + this.state.nameBox);
     });
@@ -61,8 +71,6 @@ class App extends React.Component {
   };
 
   render() {
-    const greetingMsgs = ["Good Morning", "Hello", "Howdy", "What's cracking"];
-    const greeting = greetingMsgs[Math.floor(Math.random() * greetingMsgs.length)];
     let name = "Friend";
     chrome.storage.sync.get(['name'], function(result) {
       console.log('retrieved name');
@@ -70,8 +78,8 @@ class App extends React.Component {
     });
     return (
       <>
-      <div className="App-container">
-        <h1>{greeting}, {name}</h1>
+      <div className="App-container u-textCenter">
+        <h1>{this.state.greeting}, {name}</h1>
 
         <Table items={ this.state.items }/>
         <Form handleFormSubmit={ this.handleFormSubmit } 
@@ -81,13 +89,14 @@ class App extends React.Component {
           newDate={ this.state.date } />
 
       </div>
-      <form onSubmit={this.handleSubmit}>
+
+      {/* <form onSubmit={this.handleSubmit}>
         <label>
           Name:
           <input type="text" value={this.state.nameBox} onChange={this.handleTypeName} />
         </label>
         <input type="submit" value="Submit" />
-      </form>
+      </form> */}
 
       <div className="u-flex" style={{justifyContent: "center"}}>
             <input

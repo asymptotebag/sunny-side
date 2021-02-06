@@ -4,7 +4,7 @@ class Table extends React.Component {
   render() {
     const items = this.props.items;
     return (
-      <div id="Table">
+      <div id="Table" style={{margin: "auto"}}>
         <table>
           <tbody>
             <tr>
