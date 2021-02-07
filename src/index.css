@@ -31,6 +31,12 @@ form {
   display: block;
 }
 
+img {
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+}
+
 #top_bar {
   background-color: var(--melon);
   height: 25px;
