@@ -32,9 +32,9 @@ form {
 }
 
 img {
-  position: absolute;
-  bottom: 0;
-  justify-content: center;
+  position:fixed;
+  bottom:0px;
+  left:25%;
 }
 
 #top_bar {
