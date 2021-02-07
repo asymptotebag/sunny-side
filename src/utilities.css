@@ -131,6 +131,11 @@ form {
   font-size: 16px;
 }
 
+.u-textSmall
+{
+  font-size: 10px;
+}
+
 .u-relative {
   position: relative;
 }
@@ -208,4 +213,14 @@ form {
 
 .nonSelectedRow {
   color: var(--copper);
+}
+
+.row-item {
+  color: var(--copper);
+}
+
+.row-item:hover,
+.row-item:active {
+  color: var(--melon);
+  text-decoration: line-through;
 }
