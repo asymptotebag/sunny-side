@@ -56,7 +56,7 @@ class Table extends React.Component {
             {items.map((item, index) => {
               let row_state = this.getRowState(index);
               return (
-                <tr value={index} className={row_state} onClick={() => this.toggleSelection(index)}>
+                <tr value={index} className="row-item u-pointer" onClick={() => this.toggleSelection(index)}>
                   <td>{item.eventName}</td>
                   <td>{item.time}</td>
                   <td>{item.date}</td>
